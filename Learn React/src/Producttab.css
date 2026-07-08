@@ -1,0 +1,17 @@
+.Producttab{
+    height:400px;
+    width:auto;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+  
+}
+.Outer{
+    margin-left: 250px;
+    margin-top: 50px;
+    padding-top: 20px;
+}
