@@ -1,5 +1,9 @@
 export default function Like(){
-  let Like = document.getElementById(Like);
-  console.log(Like);
-    return(<i id="Like" class="fa-regular fa-heart"></i>);
+  let a = 10;
+  let b;
+  function inner(){
+     b = a+10;
+     console.log(b);
+  }
+  return(<h1 onClick={inner}>Addition is:{b}</h1>)
 }
