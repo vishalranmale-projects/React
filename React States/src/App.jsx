@@ -7,9 +7,10 @@ import './App.css'
 import Counter from './Counter'
 import Like from './Like'
 import LudoBoard from './LudoBoard'
+import Lottery from './Lottery'
 function App() {
   return (<>
-  <Todo></Todo>
+  <Lottery/>
     </>
   )
 }
