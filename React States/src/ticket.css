@@ -1,0 +1,11 @@
+.ticket {
+  border: 2px solid black;
+  margin-top: 50px;
+  width: 200px;
+  height: 100px;
+  margin-left: 500px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

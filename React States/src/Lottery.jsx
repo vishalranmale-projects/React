@@ -1,21 +1,21 @@
+import Ticket from "./Ticket";
 import { useState } from "react";
-
-export default function Lottery(){
-    let[lotteryDetails,setloteryDetails] = useState({value:0,isWin:false});
-
-    function Start(){
-     let num = Math.floor(Math.random() * 900) + 100;
-     let Sum=0;
-      for(let i=num;i>0;i=i/10){
-         let LD = i%10;
-         Sum = Sum+LD;
-      }
-      Sum = Math.floor(Sum);
-      console.log(Sum)
-     Sum==15?setloteryDetails({value:num,isWin:true}):setloteryDetails({value:num,isWin:false})
-    }
-    return(<>
-    {lotteryDetails.isWin?<h1>Lottery 'Congratulation,you won!"</h1>:null}
-    <h4>Lottery Ticket:{lotteryDetails.value}</h4>
-    <button onClick={Start}>Get New Ticket!</button></>)
+import sum from "./Sum";
+import lotteryWinSum from "./lotteryWinSum";
+import LotteryTicket from "./lotteryTicket";
+import BuyTicket from "./button";
+export default function Lottery({ size = 3, winningSum = 15 }) {
+  let [lottery, setlottery] = useState(LotteryTicket(size));
+  function buyTicket() {
+    setlottery(LotteryTicket(size));
+  }
+  return (
+    <>
+      {lotteryWinSum(lottery, winningSum) ? (
+        <h1>he he You Win An Lottery!</h1>
+      ) : null}
+      <Ticket ticket={lottery}></Ticket>
+      <BuyTicket buytck={buyTicket}></BuyTicket>
+    </>
+  );
 }
