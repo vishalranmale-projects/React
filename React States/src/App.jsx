@@ -1,10 +1,12 @@
 import "./App.css";
 import Form from "./form";
-import CreateComments from "./Commentsform";
+import Comment from "./Comment";
+import Counter from "./Counter";
+import Jokes from "./Joke";
 function App() {
   return (
     <>
-      <CreateComments />
+      <Jokes></Jokes>
     </>
   );
 }

@@ -1,14 +1,23 @@
-import {useState} from "react";
-function Counter(){
+import { useState } from "react";
+import { useEffect } from "react";
+export default function Counter() {
+  let [countx, setcountx] = useState(0);
+  let [county, setcounty] = useState(0);
 
-    let[count,setCount] = useState(0);
-   async function  increaseCount(){
-       setCount(count=count+1);
-       setCount(count=count+1);
-    }
-    return(<><h1>Count:{count}</h1>
-        <button onClick={increaseCount}>Increase Count!</button></>
-    )
+  function change() {
+    console.log("This  is An Change After An Re-render of An Componenets!");
+  }
+
+  useEffect(change, []);
+  function updateCount() {
+    setcountx((countx) => {
+      return (countx += 1);
+    });
+  }
+  return (
+    <>
+      <h1>Counts:{countx}</h1>
+      <button onClick={updateCount}>+1</button>
+    </>
+  );
 }
-
-export default Counter;

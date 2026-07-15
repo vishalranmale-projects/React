@@ -1,5 +1,5 @@
-.comments {
+.Comment {
   border: 2px solid black;
-  width: 200px;
   border-radius: 10px;
+  width: 200px;
 }
