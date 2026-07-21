@@ -9,23 +9,12 @@ import UmbrellaIcon from "@mui/icons-material/Umbrella";
 import SolarPowerIcon from "@mui/icons-material/SolarPower";
 import "./weather.css";
 export default function InfoBox({ weatherData }) {
-  console.log(weatherData);
+  console.log(weatherData.image_URL + "org");
   return (
     <>
       <div className="Container">
         <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image={
-              weatherData.temp <= 15
-                ? "https://t3.ftcdn.net/jpg/02/88/73/34/360_F_288733450_JhCzDnowWFyz8xzgSXDWVwGlfjHV5NHF.jpg"
-                : weatherData.humidity >= 70
-                  ? "https://img.magnific.com/free-photo/weather-effects-composition_23-2149853295.jpg?semt=ais_hybrid&w=740&q=80 "
-                  : weatherData.temp >= 25
-                    ? "https://static.vecteezy.com/system/resources/thumbnails/041/043/625/small/ai-generated-wooden-word-summer-on-sandy-beach-with-seashore-background-photo.jpg"
-                    : null
-            }
-          />
+          <CardMedia sx={{ height: 140 }} image={weatherData.image_URL} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               <i>

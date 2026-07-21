@@ -4,6 +4,15 @@ import Button from "@mui/material/Button";
 import "./searchbox.css";
 export default function SearchBox({ getData }) {
   let [error, seterror] = useState("");
+  let cityImageUrl;
+  async function cityImages(event) {
+    console.log("I Am Called!");
+    let data = await fetch(
+      `https://api.unsplash.com/search/photos?page=1&query=${event.target.cityName.value}&client_id=wNjelqrMa8-7rd2qIqYPC_tYMs6u9anfjOoeSgxCEOI`,
+    );
+    data = await data.json();
+    cityImageUrl = data.results[0].urls.regular;
+  }
   async function getWhetherDetails(event) {
     event.preventDefault();
     seterror("");
@@ -22,6 +31,7 @@ export default function SearchBox({ getData }) {
         feelsLike: whetherInfo.main.feels_like,
         weather: whetherInfo.weather[0].description,
         cityName: whetherInfo.name,
+        image_URL: cityImageUrl,
       };
       getData(finalData);
       event.target.cityName.value = "";
@@ -30,11 +40,16 @@ export default function SearchBox({ getData }) {
       console.log("Please Enetr An Valid City Name!");
     }
   }
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await cityImages(event);
+    await getWhetherDetails(event);
+  }
   return (
     <>
       <div className="search">
         <h3>Enter An City Name</h3>
-        <form onSubmit={getWhetherDetails}>
+        <form onSubmit={handleSubmit}>
           <TextField
             name="cityName"
             id="outlined-basic"
